@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lifestylecoach</groupId>
+
+    <artifactId>personal-lifestyle-coach</artifactId>
+
+    <version>0.0.1-SNAPSHOT</version>
+
+
+    <!-- Java Configuration -->
+
+    <properties>
+
+        <maven.compiler.source>17</maven.compiler.source>
+
+        <maven.compiler.target>17</maven.compiler.target>
+
+        <maven.compiler.release>17</maven.compiler.release>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.14.1</version>
+            </plugin>
+
+            <!-- Bundles the app and all dependencies into one runnable jar
+                 for production (java -jar target/personal-lifestyle-coach.jar). -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <finalName>personal-lifestyle-coach</finalName>
+                    <transformers>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <mainClass>com.lifestylecoach.web.WebServer</mainClass>
+                        </transformer>
+                    </transformers>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <!-- Dependencies -->
+
+    <dependencies>
+
+        <!-- Google Gemini GenAI SDK -->
+
+        <dependency>
+
+            <groupId>com.google.genai</groupId>
+
+            <artifactId>google-genai</artifactId>
+
+            <version>1.0.0</version>
+
+        </dependency>
+        <dependency>
+                <groupId>com.google.code.gson</groupId>
+                    <artifactId>gson</artifactId>
+    <version>2.13.1</version>
+</dependency>
+
+
+        <!-- .env file support -->
+
+        <dependency>
+
+            <groupId>io.github.cdimascio</groupId>
+
+            <artifactId>dotenv-java</artifactId>
+
+            <version>3.2.0</version>
+
+        </dependency>
+
+        <!-- Web API for the frontend -->
+
+        <dependency>
+
+            <groupId>io.javalin</groupId>
+
+            <artifactId>javalin</artifactId>
+
+            <version>6.3.0</version>
+
+        </dependency>
+
+        <dependency>
+
+            <groupId>org.slf4j</groupId>
+
+            <artifactId>slf4j-simple</artifactId>
+
+            <version>2.0.16</version>
+
+        </dependency>
+
+    </dependencies>
+
+</project>

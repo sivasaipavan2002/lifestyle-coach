@@ -1,0 +1,11 @@
+.env
+target/
+data/
+
+# Build leftovers
+dependency-reduced-pom.xml
+
+# Local tool / editor state
+.claude/settings.local.json
+.github/modernize/
+.vscode/
